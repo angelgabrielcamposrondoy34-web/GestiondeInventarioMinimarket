@@ -1,0 +1,441 @@
+.compras-contenedor {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #1f2937;
+}
+
+.compras-encabezado-acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.compras-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(9, 28, 62, .52);
+  backdrop-filter: blur(5px);
+  animation: compras-overlay-in .18s ease-out;
+}
+
+.compras-modal {
+  width: min(920px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 25px;
+  background: #f7f9fd;
+  border: 1px solid #dbe5f5;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(9, 28, 62, .28);
+  animation: compras-modal-in .2s ease-out;
+}
+
+.compras-modal .compras-tarjeta { box-shadow: none; }
+
+.compras-modal-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.compras-modal-encabezado span {
+  color: #7387a8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.compras-modal-encabezado h3 {
+  margin: 4px 0 0;
+  color: #17356c;
+  font-size: 22px;
+}
+
+.compras-modal-cerrar {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #dce5f2;
+  border-radius: 50%;
+  color: #526783;
+  background: #fff;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.compras-modal-cerrar:hover { color: #17356c; background: #edf3ff; }
+
+@keyframes compras-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes compras-modal-in { from { opacity: 0; transform: translateY(8px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+.compras-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.compras-encabezado h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+}
+
+.compras-encabezado p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.compras-tarjeta {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.compras-tarjeta h3 {
+  margin: 0 0 20px;
+  font-size: 18px;
+}
+
+.compras-formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.compras-formulario-producto {
+  grid-template-columns: minmax(180px, 2fr) 100px minmax(130px, 1fr) auto;
+  align-items: end;
+}
+
+.compras-formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.compras-formulario input,
+.compras-formulario select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #ffffff;
+  font-size: 14px;
+}
+
+.compras-formulario input:focus,
+.compras-formulario select:focus {
+  outline: 2px solid #bfdbfe;
+  border-color: #2563eb;
+}
+
+.compras-tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.compras-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.compras-tabla th,
+.compras-tabla td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.compras-tabla th {
+  background: #f8fafc;
+  color: #374151;
+  font-weight: 700;
+}
+
+.compras-tabla td small {
+  display: block;
+  margin-top: 4px;
+  color: #6b7280;
+}
+
+.compras-vacio {
+  padding: 28px !important;
+  text-align: center !important;
+  color: #6b7280;
+}
+
+.compras-input-tabla {
+  width: 90px;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.compras-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 25px;
+  margin-top: 22px;
+  padding: 18px;
+  background: #f0fdf4;
+  border-radius: 8px;
+}
+
+.compras-total span {
+  font-weight: 600;
+}
+
+.compras-total strong {
+  color: #15803d;
+  font-size: 24px;
+}
+
+.compras-acciones {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.compras-btn-agregar,
+.compras-btn-guardar,
+.compras-btn-secundario,
+.compras-btn-eliminar {
+  padding: 11px 16px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.compras-btn-agregar {
+  background: #2563eb;
+  color: white;
+}
+
+.compras-btn-guardar {
+  background: #15803d;
+  color: white;
+}
+
+.compras-btn-secundario {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.compras-btn-eliminar {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.compras-btn-agregar:hover,
+.compras-btn-guardar:hover {
+  filter: brightness(0.94);
+}
+
+.compras-btn-agregar:disabled,
+.compras-btn-guardar:disabled,
+.compras-btn-secundario:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.compras-mensaje {
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+}
+
+.compras-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.compras-exito {
+  background: #dcfce7;
+  color: #166534;
+}
+
+@media (max-width: 900px) {
+  .compras-formulario-producto {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .compras-encabezado-acciones { width: 100%; }
+  .compras-encabezado-acciones button { flex: 1; }
+  .compras-modal-backdrop { padding: 10px; }
+  .compras-modal { max-height: calc(100vh - 20px); padding: 16px; border-radius: 14px; }
+  .compras-encabezado {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .compras-formulario,
+  .compras-formulario-producto {
+    grid-template-columns: 1fr;
+  }
+
+  .compras-tarjeta {
+    padding: 15px;
+  }
+
+  .compras-total {
+    justify-content: space-between;
+    gap: 10px;
+  }
+}
+/* Campos de texto y listas desplegables */
+.compras-container input,
+.compras-container select,
+.compras-container textarea {
+  color: #222 !important;
+  background-color: #fff !important;
+}
+
+/* Opciones de las listas desplegables */
+.compras-container select option {
+  color: #222 !important;
+  background-color: #fff !important;
+}
+/* CORRECCIÓN DE COLORES DEL MÓDULO COMPRAS */
+
+.compras-contenedor {
+  color: #1f2937 !important;
+}
+
+/* Título principal y encabezados */
+.compras-contenedor h1,
+.compras-contenedor h2,
+.compras-contenedor h3 {
+  color: #1e293b !important;
+}
+
+/* Descripción y etiquetas */
+.compras-contenedor p,
+.compras-contenedor label {
+  color: #334155 !important;
+}
+
+/* Campos de texto y listas desplegables */
+.compras-contenedor input,
+.compras-contenedor select,
+.compras-contenedor textarea {
+  color: #1f2937 !important;
+  background-color: #ffffff !important;
+}
+
+/* Opciones de productos y proveedores */
+.compras-contenedor select option {
+  color: #1f2937 !important;
+  background-color: #ffffff !important;
+}
+
+/* Textos de la tabla */
+.compras-contenedor .compras-tabla th,
+.compras-contenedor .compras-tabla td {
+  color: #1f2937 !important;
+}
+
+/* Mantener los botones con sus colores originales */
+.compras-contenedor .compras-btn-agregar,
+.compras-contenedor .compras-btn-guardar {
+  color: #ffffff !important;
+}
+
+.compras-contenedor .compras-btn-secundario {
+  color: #1f2937 !important;
+}
+
+/* Compras: misma línea visual que el resto del sistema */
+.compras-contenedor { padding: 0; color: #263e60; }
+.compras-encabezado { margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid #dce6f4; }
+.compras-encabezado h2 { color: #17356c; font-size: 27px; font-weight: 750; letter-spacing: -.55px; }
+.compras-encabezado p { color: #7384a0; font-size: 13px; }
+.compras-encabezado-acciones { flex-wrap: wrap; }
+.compras-tarjeta { padding: 21px; border-color: #dfe7f2; border-radius: 14px; box-shadow: 0 5px 18px #17345d0a; }
+.compras-tarjeta h3 { color: #17356c; font-size: 16px; }
+.compras-formulario label { color: #465c7a; font-size: 12px; }
+.compras-formulario input, .compras-formulario select { min-height: 41px; border-color: #d8e2ef; border-radius: 9px; color: #263f64; font-size: 12px; }
+.compras-formulario input:focus, .compras-formulario select:focus { outline: none; border-color: #4f83d3; box-shadow: 0 0 0 3px #4f83d31a; }
+.compras-tabla th { color: #647894; background: #f5f8fd; border-color: #e4eaf3; font-size: 10px; letter-spacing: .65px; }
+.compras-tabla td { color: #344a68; border-color: #edf1f6; font-size: 12px; }
+.compras-tabla tbody tr:hover { background: #f8faff; }
+.compras-total { border: 1px solid #d7eee2; border-radius: 11px; background: #f0faf5; }
+.compras-total span { color: #496b5a; font-size: 13px; }
+.compras-total strong { color: #16875e; }
+.compras-btn-agregar, .compras-btn-guardar, .compras-btn-secundario, .compras-btn-eliminar { min-height: 40px; border-radius: 9px; font-size: 12px; }
+.compras-btn-agregar, .compras-btn-guardar { background: linear-gradient(110deg, #1759b8, #2472da); box-shadow: 0 6px 14px #1c5bb51c; }
+.compras-btn-agregar:hover, .compras-btn-guardar:hover { filter: brightness(.95); }
+.compras-btn-secundario { border: 1px solid #d9e3f0; background: #fff; color: #425a7b; }
+.compras-btn-eliminar { border: 1px solid #f5dada; }
+.compras-mensaje { border-radius: 10px; font-size: 13px; }
+
+@media (max-width: 600px) {
+  .compras-encabezado-acciones { display: grid; grid-template-columns: 1fr 1fr; }
+  .compras-encabezado-acciones button { width: 100%; }
+  .compras-encabezado h2 { font-size: 23px; }
+}
+
+/* Corregir el título de Gestión de compras */
+.compras-contenedor .compras-encabezado h2 {
+  color: #1e293b !important;
+}
+
+/* Corregir los títulos de las tarjetas */
+.compras-contenedor .compras-tarjeta h3 {
+  color: #1e293b !important;
+}
+
+/* Corregir las etiquetas y los textos */
+.compras-contenedor label,
+.compras-contenedor p,
+.compras-contenedor .compras-tabla td {
+  color: #334155;
+}
+
+/* Corregir los campos de selección */
+.compras-contenedor input,
+.compras-contenedor select {
+  color: #1f2937 !important;
+  background-color: #ffffff !important;
+}
+
+/* Corregir las opciones de productos y proveedores */
+.compras-contenedor select option {
+  color: #1f2937 !important;
+  background-color: #ffffff !important;
+}
+
+/* Mantener los colores originales de los botones */
+.compras-contenedor .compras-btn-agregar,
+.compras-contenedor .compras-btn-guardar {
+  color: #ffffff !important;
+}
+
+.compras-contenedor .compras-btn-secundario {
+  color: #1f2937 !important;
+}
